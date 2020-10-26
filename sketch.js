@@ -10,7 +10,7 @@ function preload()
 }
 
 function setup() {
-	createCanvas(800, 700);
+	createCanvas(1600, 700);
 
 
 	engine = Engine.create();
@@ -18,11 +18,11 @@ function setup() {
 
 	//Create the Bodies Here.
 	paper=new Paper(100,500,40)
-  ground=new Ground(400,670,800,100)
+  ground=new Ground(800,670,1600,100)
   
-  d1= new Dustbin (600,650,120,25)
-  d2= new Dustbin (530,610,25,100)
-  d3= new Dustbin (670,610,25,100)
+  d1= new Dustbin (600,610,120,25)
+  d2= new Dustbin (530,570,25,100)
+  d3= new Dustbin (670,570,25,100)
 
 
 	Engine.run(engine);
@@ -34,9 +34,7 @@ function draw() {
   rectMode(CENTER);
   Engine.update(engine);
   background(0);
-  if (keyCode===UP_ARROW){
-	Matter.Body.applyForce(paper.body,paper.body.position, {x:85,y:-85})
-  }
+
   d1.display();
   d2.display();
   d3.display();
@@ -44,6 +42,11 @@ function draw() {
   ground.display();
   drawSprites();
  
+}
+function keyPressed(){
+  if (keyCode===UP_ARROW){
+    Matter.Body.applyForce(paper.body,paper.body.position, {x:200,y:-250})
+    }
 }
 
 
